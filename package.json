@@ -1,6 +1,6 @@
 {
   "name": "@secrets/react-jsonschema-antd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ant Design theme, fields and widgets for react-jsonschema-form",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -95,6 +95,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@secrets/rjsf": "^1.0.0",
     "moment": "^2.29.1"
   }
 }
