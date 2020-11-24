@@ -24,7 +24,7 @@
   },
   "peerDependencies": {
     "@babel/runtime-corejs2": "^7.10.3",
-    "@rjsf/core": "^2.0.0",
+    "@secrets/rjsf": "^1.0.0",
     "antd": "^3.26.18",
     "core-js": "^2.5.7",
     "lodash": "^4.17.15",

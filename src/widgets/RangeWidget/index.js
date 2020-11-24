@@ -1,8 +1,8 @@
 /* eslint-disable no-else-return */
-import React from 'react';
+import React from "react";
 
-import { utils } from '@rjsf/core';
-import Slider from 'antd/lib/slider';
+import { utils } from "@secrets/rjsf";
+import Slider from "antd/lib/slider";
 
 const { rangeSpec } = utils;
 
@@ -20,16 +20,16 @@ const RangeWidget = ({
   readonly,
   // required,
   schema,
-  value,
+  value
 }) => {
   const { readonlyAsDisabled = true } = formContext;
 
   const { min, max, step } = rangeSpec(schema);
 
-  const emptyValue = options.emptyValue || '';
+  const emptyValue = options.emptyValue || "";
 
   const handleChange = (nextValue) =>
-    onChange(nextValue === '' ? emptyValue : nextValue);
+    onChange(nextValue === "" ? emptyValue : nextValue);
 
   const handleBlur = () => onBlur(id, value);
 

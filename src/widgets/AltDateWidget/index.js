@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import { utils } from '@rjsf/core';
-import Button from 'antd/lib/button';
-import Col from 'antd/lib/col';
-import Row from 'antd/lib/row';
+import { utils } from "@secrets/rjsf";
+import Button from "antd/lib/button";
+import Col from "antd/lib/col";
+import Row from "antd/lib/row";
 
 const { pad, parseDateString, toDateString } = utils;
 
@@ -17,7 +17,7 @@ const rangeOptions = (start, stop) => {
 
 const readyForChange = (state) => {
   return Object.keys(state).every(
-    key => typeof state[key] !== "undefined" && state[key] !== -1,
+    (key) => typeof state[key] !== "undefined" && state[key] !== -1
   );
 };
 
@@ -33,7 +33,7 @@ const AltDateWidget = ({
   readonly,
   registry,
   showTime,
-  value,
+  value
 }) => {
   const { SelectWidget } = registry.widgets;
   const { rowGutter = 24 } = formContext;
@@ -47,7 +47,7 @@ const AltDateWidget = ({
   const handleChange = (property, nextValue) => {
     const nextState = {
       ...state,
-      [property]: typeof nextValue === "undefined" ? -1 : nextValue,
+      [property]: typeof nextValue === "undefined" ? -1 : nextValue
     };
 
     if (readyForChange(nextState)) {
@@ -80,7 +80,7 @@ const AltDateWidget = ({
     const data = [
       { type: "year", range: options.yearsRange, value: year },
       { type: "month", range: [1, 12], value: month },
-      { type: "day", range: [1, 31], value: day },
+      { type: "day", range: [1, 31], value: day }
     ];
 
     if (showTime) {
@@ -104,7 +104,7 @@ const AltDateWidget = ({
       onChange={(elemValue) => elemProps.select(elemProps.type, elemValue)}
       onFocus={elemProps.onFocus}
       options={{
-        enumOptions: rangeOptions(elemProps.range[0], elemProps.range[1]),
+        enumOptions: rangeOptions(elemProps.range[0], elemProps.range[1])
       }}
       placeholder={elemProps.type}
       readonly={elemProps.readonly}
@@ -131,7 +131,7 @@ const AltDateWidget = ({
               select: handleChange,
               // NOTE: antd components accept -1 rather than issue a warning
               // like material-ui, so we need to convert -1 to undefined here.
-              value: elemProps.value < 0 ? undefined : elemProps.value,
+              value: elemProps.value < 0 ? undefined : elemProps.value
             })}
           </Col>
         );
@@ -164,10 +164,10 @@ AltDateWidget.defaultProps = {
   autofocus: false,
   disabled: false,
   options: {
-    yearsRange: [1900, new Date().getFullYear() + 2],
+    yearsRange: [1900, new Date().getFullYear() + 2]
   },
   readonly: false,
-  showTime: false,
+  showTime: false
 };
 
 export default AltDateWidget;
